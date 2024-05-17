@@ -1,7 +1,10 @@
 # GerenciadorDeDespesas 
  Universidade Católica de Pernambuco
+ 
  Projeto de Programação Orientada a Objetos
+ 
  Professora: Ivna 
+ 
  Aluna: Tarsila Amado Alves de Brito
 
 Gerenciador de Despesas 
