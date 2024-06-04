@@ -1,0 +1,57 @@
+package main.java;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+    @Override
+    public void start(Stage primaryStage) {
+        GerenciadorDespesas gerenciador = new GerenciadorDespesas();
+
+        VBox root = new VBox(10);
+
+        Label labelDescricao = new Label("Descrição:");
+        TextField textFieldDescricao = new TextField();
+        
+        Label labelValor = new Label("Valor:");
+        TextField textFieldValor = new TextField();
+        
+        Label labelData = new Label("Data:");
+        TextField textFieldData = new TextField();
+        
+        Button btnAdicionarDespesa = new Button("Adicionar Despesa");
+        btnAdicionarDespesa.setOnAction(e -> {
+            String descricao = textFieldDescricao.getText();
+            double valor = Double.parseDouble(textFieldValor.getText());
+            String data = textFieldData.getText();
+            gerenciador.adicionarTransacao(new Despesa(descricao, valor, data));
+            textFieldDescricao.clear();
+            textFieldValor.clear();
+            textFieldData.clear();
+        });
+
+        Button btnListarTransacoes = new Button("Listar Transações");
+        btnListarTransacoes.setOnAction(e -> {
+            for (Transacao transacao : gerenciador.listarTransacoes()) {
+                System.out.println(transacao);
+            }
+        });
+
+        root.getChildren().addAll(labelDescricao, textFieldDescricao, labelValor, textFieldValor, labelData, textFieldData, btnAdicionarDespesa, btnListarTransacoes);
+
+        Scene scene = new Scene(root, 300, 250);
+
+        primaryStage.setTitle("Gerenciador de Despesas");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
