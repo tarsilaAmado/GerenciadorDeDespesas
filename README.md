@@ -25,26 +25,5 @@ Requisitos Funcionais do Projeto:
 
 ////////////////////////////////////////////////////
 
-Descrições:
 
-Transacao    
-- descrição: String
-- valor: double      
-- data: String
- getDescricao():    
- getValor():        
- getData():   
-Despesa + Receita
-GerenciadorDespesas
-- transações: ArrayList
-- arquivo: String 
-  adicionarTransacao() 
-  removerTransacao() 
-  listarTransacoes()   
-  calcularTotalDespesas() 
-  salvarTransacoes()   
-  carregarTransacoes()
-
-  
- Utilizei a herança para as classes Despesa e Receita (herdam da Transação), abstração para a classe Transação, e polimorfismo para os métodos aceitando objetos do tipo Transação. Do CRUID usei create, delete e read.
 
